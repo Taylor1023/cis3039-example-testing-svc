@@ -11,10 +11,13 @@
     "start": "func start",
     "test": "vitest run",
     "test:watch": "vitest --watch",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "seed": "npm run build && node dist/src/seed/seed.js"
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0"
+    "@azure/cosmos": "^4.9.0",
+    "@azure/functions": "^4.0.0",
+    "@azure/identity": "^4.13.0"
   },
   "devDependencies": {
     "@types/node": "^22.19.1",

@@ -1,11 +1,11 @@
 import { app, HttpRequest, HttpResponseInit } from '@azure/functions';
 import { listProducts } from '../app/list-products';
-import { makeListProductsDeps } from '../config/appServices';
+import { createListProductsDeps } from '../config/appServices';
 
 const listProductsHandler = async (
   _request: HttpRequest
 ): Promise<HttpResponseInit> => {
-  const deps = makeListProductsDeps();
+  const deps = createListProductsDeps();
   const result = await listProducts(deps);
 
   if (!result.success) {
