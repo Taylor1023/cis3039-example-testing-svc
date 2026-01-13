@@ -9,7 +9,8 @@ export type UpsertProductDeps = {
 export type UpsertProductCommand = {
   id: string;
   name: string;
-  pricePence: number;
+  quantity: number;
+  loanDays: number;
   description: string;
 };
 

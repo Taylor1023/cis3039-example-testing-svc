@@ -22,14 +22,16 @@ describe('listProducts', () => {
       {
         id: 'prod-1',
         name: 'Product 1',
-        pricePence: 1000,
+        quantity: 15,
+        loanDays: 2,
         description: 'First product',
         updatedAt: new Date('2025-01-01'),
       },
       {
         id: 'prod-2',
         name: 'Product 2',
-        pricePence: 2000,
+        quantity: 20,
+        loanDays: 2,
         description: 'Second product',
         updatedAt: new Date('2025-01-02'),
       },

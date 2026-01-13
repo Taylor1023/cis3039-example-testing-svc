@@ -8,7 +8,8 @@ describe('createProduct', () => {
       const params = {
         id: 'prod-123',
         name: 'Test Product',
-        pricePence: 1999,
+        quantity: 25,
+        loanDays: 2,
         description: 'A great test product',
         updatedAt: new Date('2025-01-01'),
       };
@@ -29,7 +30,8 @@ describe('createProduct', () => {
       const params = {
         id: '   ',
         name: 'Test Product',
-        pricePence: 1999,
+        quantity: 20,
+        loanDays: 2,
         description: 'A test product',
         updatedAt: new Date(),
       };

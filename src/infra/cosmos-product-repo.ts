@@ -8,7 +8,8 @@ type CosmosProductDocument = {
   id: string;
   name: string;
   description: string;
-  pricePence: number;
+  quantity: number;
+  loanDays: number;
   updatedAt: string;
 };
 
@@ -134,7 +135,8 @@ export class CosmosProductRepo implements ProductRepo {
       id: document.id,
       name: document.name,
       description: document.description,
-      pricePence: document.pricePence,
+      quantity: document.quantity,
+      loanDays: document.loanDays,
       updatedAt,
     };
   }
@@ -150,7 +152,8 @@ export class CosmosProductRepo implements ProductRepo {
       id: product.id,
       name: product.name,
       description: product.description,
-      pricePence: product.pricePence,
+      quantity: product.quantity,
+      loanDays: product.loanDays,
       updatedAt: product.updatedAt.toISOString(),
     };
   }

@@ -19,14 +19,14 @@ const upsertProductHandler = async (
       };
     }
 
-    const { id, name, pricePence, description } = body;
+    const { id, name, quantity, loanDays, description } = body;
 
-    if (!id || !name || pricePence === undefined || !description) {
+    if (!id || !name || quantity === undefined || loanDays === undefined || !description) {
       return {
         status: 400,
         jsonBody: {
           success: false,
-          message: 'Missing required fields: id, name, pricePence, description',
+          message: 'Missing required fields: id, name, quantity, loanDays, description',
         },
       };
     }
@@ -35,7 +35,8 @@ const upsertProductHandler = async (
     const result = await upsertProduct(deps, {
       id,
       name,
-      pricePence,
+      quantity,
+      loanDays,
       description,
     });
 

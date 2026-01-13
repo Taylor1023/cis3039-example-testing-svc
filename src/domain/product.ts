@@ -1,7 +1,8 @@
 export type Product = {
   id: string;
   name: string;
-  pricePence: number;
+  quantity: number;
+  loanDays: number;
   description: string;
   updatedAt: Date;
 };
@@ -9,7 +10,8 @@ export type Product = {
 export type CreateProductParams = {
   id: string;
   name: string;
-  pricePence: number;
+  quantity: number;
+  loanDays: number;
   description: string;
   updatedAt: Date;
 };
@@ -33,13 +35,23 @@ const validateProduct = (params: CreateProductParams): void => {
     throw new ProductError('name', 'Product name must be a non-empty string.');
   }
   if (
-    typeof params.pricePence !== 'number' ||
-    params.pricePence < 0 ||
-    !Number.isInteger(params.pricePence)
+    typeof params.quantity !== 'number' ||
+    params.quantity < 0 ||
+    !Number.isInteger(params.quantity)
   ) {
     throw new ProductError(
-      'pricePence',
-      'Product pricePence must be a non-negative integer.'
+      'quantity',
+      'Product quantity must be a non-negative integer.'
+    );
+  }
+  if (
+    typeof params.loanDays !== 'number' ||
+    params.loanDays < 0 ||
+    !Number.isInteger(params.loanDays)
+  ) {
+    throw new ProductError(
+      'loanDays',
+      'Product loanDays must be a non-negative integer.'
     );
   }
   if (
@@ -69,7 +81,8 @@ export const createProduct = (params: CreateProductParams): Product => {
   return {
     id: params.id,
     name: params.name,
-    pricePence: params.pricePence,
+    quantity: params.quantity,
+    loanDays: params.loanDays,
     description: params.description,
     updatedAt: params.updatedAt,
   };
